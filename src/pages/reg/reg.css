@@ -4,30 +4,26 @@
     justify-content: center;
 }
 
-.login {
+.reg {
     box-shadow: 0px 0px 10px 1px rgba(34, 60, 80, 0.26);
     border-radius: 12px;
     max-width: 340px;
     padding: 30px;
 }
 
-.login__title {
+.reg__title {
     text-align: center;
     color: #1e1e1e;
     margin-bottom: 35px;
 }
 
-.login__form {
+.reg__form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.login__inputs, .login__btns{
+.reg__inputs, .reg__btns{
     display: flex;
     flex-direction: column;
-}
-
-.login__inputs{
-    margin-bottom: 50px;
-}
+} 
