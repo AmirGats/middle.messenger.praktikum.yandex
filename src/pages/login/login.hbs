@@ -3,12 +3,12 @@
         <h2 class="login__title">Вход</h2>
         <form class="login__form">
             <div class="login__inputs">
-                {{> input class="login__input" typeTxt="text" name="login" placeholder="Логин" }}
-                {{> input class="login__input" name="password" placeholder="Пароль" }}
+                {{> Input label="Login" }}
+                {{> Input label="Password" }}
             </div>
             <div class="login__btns">
-                {{> button class="login__button" btnText="Войти"}}
-                <p><a href="#">Нет аккаунта ?</a></p>
+                {{> Button type="primary" btnText="Войти"}}
+                {{> Button type="link" btnText="Нет аккаунта?"}}
             </div>
         </form>
     </div>

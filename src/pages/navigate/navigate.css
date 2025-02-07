@@ -10,4 +10,4 @@
 }
 
 a {text-decoration: none;}
-a:hover {color: #3369F3;}
+a:hover {color: var(--blue-main);}
