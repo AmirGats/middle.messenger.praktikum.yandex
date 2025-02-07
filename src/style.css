@@ -1,3 +1,12 @@
+:root {
+  --blue-main: #3369F3;
+  --gray-main: #FBFBFB;
+  --red-err: #FF0000;
+  --act-cl: #E4EDFD;
+  --text-cl: #1E1E1E;
+  --text-cl2: #999;
+}
+
 * {
   padding: 0;
   margin: 0;
