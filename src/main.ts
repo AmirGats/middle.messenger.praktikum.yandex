@@ -1,3 +1,4 @@
+import "./style.css";
 import Handlebars from 'handlebars';
 import * as Components  from "./components";
 import * as Pages  from "./pages";
@@ -18,7 +19,7 @@ function navigate(page: string){
 
 Object.entries(Components).forEach(([name, template]) => {
   Handlebars.registerPartial(name, template);
-})
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {navigate('nav')})
