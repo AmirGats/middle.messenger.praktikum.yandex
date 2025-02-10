@@ -1,1 +1,7 @@
-<a href="#" class="{{class}}">{{linkText}}</a>
+<a href="#" class="{{class}}">
+    {{#if (eq class "linkProfile")}}
+        <img src="/src/assets/image/arrow_back.svg" alt="вернуться назад" class="profile__avatar">
+    {{else}}
+        {{linkText}}
+    {{/if}}
+</a>
