@@ -1,0 +1,9 @@
+.profile__nav{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-main);
+    padding: 18px;
+    border-right: 1px solid var(--gray-main);
+}
