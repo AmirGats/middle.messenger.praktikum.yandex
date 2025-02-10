@@ -29,6 +29,10 @@
     flex-direction: column;
 }
 
+.login__btns{
+    gap: 14px;
+}
+
 .login__inputs{
     margin-bottom: 50px;
 }
