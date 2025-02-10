@@ -1,0 +1,11 @@
+.link{
+    color: var(--blue-main);
+    font-size: 13px;
+    text-align: center;
+}
+
+.link-red{
+    color: var(--red-err);
+    font-size: 13px;
+    text-align: center;
+}
