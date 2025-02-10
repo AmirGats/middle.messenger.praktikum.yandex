@@ -1,0 +1,44 @@
+<div class="profile__inner">
+    <div class="profile__wrapper">
+        <div class="profile__avatar">
+        <div class="profile__img">
+            <img src="/src/assets/image/profile-img.svg" alt="Аватарка">
+        </div>
+        <h1 class="profile__title">Давид</h1>
+    </div>
+
+    <dl class="profile__info">
+        <div class="profile__row">
+            <dt class="profile__label">Почта</dt>
+            <dd class="profile__value">{{email}}</dd>
+        </div>
+        <div class="profile__row">
+            <dt class="profile__label">Логин</dt>
+            <dd class="profile__value">{{login}}</dd>
+        </div>
+        <div class="profile__row">
+            <dt class="profile__label">Имя</dt>
+            <dd class="profile__value">{{Name}}</dd>
+        </div>
+        <div class="profile__row">
+            <dt class="profile__label">Фамилия</dt>
+            <dd class="profile__value">{{Surname}}</dd>
+        </div>
+        <div class="profile__row">
+            <dt class="profile__label">Имя в чате</dt>
+            <dd class="profile__value">{{nickname}}</dd>
+        </div>
+        <div class="profile__row">
+            <dt class="profile__label">Телефон</dt>
+            <dd class="profile__value">{{phone}}</dd>
+        </div>
+    </dl>
+
+    <div class="profile__change">
+        {{> link class="link" linkText="Изменить данные"}}
+        {{> link class="link" linkText="Изменить пароль"}}
+        {{> link class="link-red" linkText="Выйти"}}
+    </div>
+
+    </div>
+</div>
