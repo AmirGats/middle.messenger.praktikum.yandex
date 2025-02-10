@@ -8,7 +8,9 @@ registerPartial();
 const linkPage = {
   'nav': [ Pages.navPage ],
   'login': [ Pages.logPage ],
-  'register': [ Pages.regPage ]
+  'register': [ Pages.regPage ],
+  'error404': [Pages.error404],
+  'error500': [Pages.error500],
 };
 
 function navigate(page: string) {
