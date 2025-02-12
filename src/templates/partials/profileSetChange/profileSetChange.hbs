@@ -1,0 +1,41 @@
+<div class="profile__inner">
+    <div class="profile__wrapper">
+        <div class="profile__avatar">
+            <div class="profile__img">
+                <img src="/src/assets/image/profile-img.svg" alt="Аватарка">
+                <p class="profile__overlay">поменять аватарку</p>
+            </div>
+        </div>
+
+        <dl class="profile__info">
+            <div class="profile__row">
+                <dt class="profile__label">Почта</dt>
+                {{> inputProfile value=email }}
+            </div>
+            <div class="profile__row">
+                <dt class="profile__label">Логин</dt>
+                {{> inputProfile value=login }}
+            </div>
+            <div class="profile__row">
+                <dt class="profile__label">Имя</dt>
+                {{> inputProfile value=name}}
+            </div>
+            <div class="profile__row">
+                <dt class="profile__label">Фамилия</dt>
+                {{> inputProfile value=surname}}
+            </div>
+            <div class="profile__row">
+                <dt class="profile__label">Имя в чате</dt>
+                {{> inputProfile value=nickname}}
+            </div>
+            <div class="profile__row">
+                <dt class="profile__label">Телефон</dt>
+                {{> inputProfile value=phone}}
+            </div>
+        </dl>
+
+        <div class="profile__change">
+            {{> button type="primary" btnText="Сохранить"}}
+        </div>
+    </div>
+</div>

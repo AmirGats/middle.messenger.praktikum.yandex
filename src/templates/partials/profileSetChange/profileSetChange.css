@@ -77,3 +77,37 @@
 .profile__change .link-red{
     text-align: start;
 }
+
+
+.profile__img {
+    position: relative;
+  }
+
+  .profile__img img {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .profile__overlay {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение */
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+
+  .profile__img:hover .profile__overlay {
+    opacity: 1;
+  }
+
+  .profile__img:hover img {
+    filter: brightness(50%);
+  }
