@@ -1,0 +1,13 @@
+.inputProfile {
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  color: var(--text-cl2);
+  font-weight: 500;
+  text-align: end;
+}
+
+.inputProfile:active,
+.inputProfile:focus {
+  outline: none;
+}

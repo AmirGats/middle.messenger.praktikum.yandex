@@ -11,18 +11,11 @@ const linkPage = {
   'login': [ Pages.logPage ],
   'register': [ Pages.regPage ],
   'profile': [Pages.profile],
+  'profileChange': [Pages.profileChange],
+  'profilePassword': [Pages.profilePassword],
   'error404': [Pages.error404],
   'error500': [Pages.error500],
 };
-
-// const profileData = {
-//   email: "pochta@gmail.com",
-//   login: "user123",
-//   Name: "Иван",
-//   Surname: "Петров",
-//   nickname: "ivan_chat",
-//   phone: "+7 (999) 123-45-67"
-// };
 
 
 function navigate(page: string) {
@@ -30,8 +23,23 @@ function navigate(page: string) {
   const [source, context] = linkPage[page];
   const container = document.getElementById("app")!;
 
+  //@ts-ignore
+  let profileData = {}
+
+  if(page = 'profile'){
+    profileData = {
+      email: "pochta@gmail.com",
+      login: "user123",
+      name: "Давид",
+      surname: "Нагорный",
+      nickname: "ivan_chat",
+      phone: "+7 (999) 123-45-67"
+    };
+  }
+
+
   const templateFunc = Handlebars.compile(source);
-  container.innerHTML = templateFunc(context);
+  container.innerHTML = templateFunc(profileData);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
