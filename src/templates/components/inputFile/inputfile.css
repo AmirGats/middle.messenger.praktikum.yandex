@@ -1,0 +1,7 @@
+.inputFile__text{
+    color: var(--blue-main);
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+}
+
