@@ -1,2 +1,2 @@
-import "./inputfile.css"
-export {default as inputFile} from "./inputfile.hbs?raw"
+import "./inputFile.css"
+export {default as inputFile} from "./inputFile.hbs?raw"
