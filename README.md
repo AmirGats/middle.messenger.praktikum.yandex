@@ -1,6 +1,7 @@
 # yandex-chat
 
 Yandex-chat - простой чат для поддержки связи с близкими. Прокет написан с помощью шаблонизатора Handlebars и TypeScript. 
+В дальнейшем проект будет развиваться.
 Иконки и картинки:[Google Fonts Icons](https://fonts.google.com/icons). 
 Макет приложения: [Макет смотреть здесь](https://www.figma.com/design/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0-1&p=f&t=MYYY87zCEEplAMAO-0)
 
