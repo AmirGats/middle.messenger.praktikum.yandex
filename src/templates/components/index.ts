@@ -8,6 +8,7 @@ export { inputFile } from "./inputFile";
 export { profileContainer } from "./profileContainer";
 export { errorContainer } from "./errorContainer";
 export { chatContainer } from "./chatContainer";
+export { chatWindow } from "./chatWindow";
 export { profileNav } from "./profileNavigation";
 export { chatSidebar } from "./chatSidebar";
 export { chatUser } from "./chatUser";
