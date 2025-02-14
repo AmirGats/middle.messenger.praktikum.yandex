@@ -24,3 +24,4 @@ Yandex-chat - простой чат для поддержки связи с бл
 
 ## Netlify
 
+[Netlify](https://yandex-chatick.netlify.app/)
