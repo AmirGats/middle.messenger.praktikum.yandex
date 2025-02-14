@@ -3,13 +3,13 @@
         <h2 class="reg__title">Регистрация</h2>
         <form class="reg__form">
             <div class="reg__inputs">
-                {{> input label="Email"}}
-                {{> input label="Login"}}
-                {{> input label="Name"}}
-                {{> input label="Surname"}}
-                {{> input label="Phone"}}
-                {{> input label="Password"}}
-                {{> input label="Repeat password"}}
+                {{> input label="Email" name="email"}}
+                {{> input label="Login" name="loginReg"}}
+                {{> input label="Name"name="nameUser"}}
+                {{> input label="Surname" name="surname"}}
+                {{> input label="Phone" name="phone"}}
+                {{> input label="Password" name="passwordReg"}}
+                {{> input label="Repeat password" name="passwordReg"}}
             </div>
             <div class="reg__btns">
                 {{> button type="primary" btnText="Зарегистрироваться"}}
