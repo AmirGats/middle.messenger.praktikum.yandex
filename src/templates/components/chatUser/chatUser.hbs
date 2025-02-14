@@ -1,0 +1,17 @@
+<div class="chatUser">
+    <div class="info__wrapper">
+        <div class="chatUser__avatar"></div>
+        <div class="chatUser__info">
+            <div class="chatUser__name">Имя</div>
+            <div class="chatUser__last-message">Изображение</div>
+        </div>
+    </div>
+    <div class="chatUser__time-badge">
+        <div class="chatUser__time">10:49</div>
+        {{#if messageCount}}
+            <div class="chatUser__message-count">{{messageCount}}</div> 
+            {{else}}
+            <div></div>
+        {{/if}}
+    </div>
+</div>

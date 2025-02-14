@@ -1,0 +1,64 @@
+.chatUser {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--gray-main);
+}
+
+.info__wrapper{
+    display: flex;
+    gap: 10px;
+}
+
+.chatUser:hover{
+    background: var(--act-cl);
+}
+
+.chatUser__avatar {
+    width: 47px;
+    height: 47px;
+    background: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chatUser__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chatUser__name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.chatUser__last-message {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-cl2);
+}
+
+.chatUser__time-badge {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.chatUser__time {
+    font-size: 10px;
+    color: var(--text-cl2);
+}
+
+.chatUser__message-count {
+    width: 20px;
+    height: 20px;
+    background-color: var(--blue-main);
+    color: white;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
