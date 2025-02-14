@@ -13,6 +13,7 @@ const linkPage = {
   'profile': [Pages.profile],
   'profileChange': [Pages.profileChange],
   'profilePassword': [Pages.profilePassword],
+  'chat': [Pages.chat],
   'error404': [Pages.error404],
   'error500': [Pages.error500],
 };

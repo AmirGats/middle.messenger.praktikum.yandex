@@ -1,6 +1,6 @@
 :root {
   --blue-main: #3369F3;
-  --gray-main: #FBFBFB;
+  --gray-main: #e8e6e6;
   --red-err: #FF0000;
   --act-cl: #E4EDFD;
   --text-cl: #1E1E1E;
@@ -18,3 +18,4 @@ img, svg {
 	max-width: 100%;
 	height: auto;
 }
+
