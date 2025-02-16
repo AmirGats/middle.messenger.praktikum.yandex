@@ -1,0 +1,21 @@
+.link{
+    color: var(--blue-main);
+    font-size: 13px;
+    text-align: center;
+}
+
+.link-red{
+    color: var(--red-err);
+    font-size: 13px;
+    text-align: center;
+}
+
+.linkProfile{
+    width: 32px;
+    height: 32px;
+    background-color: var(--blue-main);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

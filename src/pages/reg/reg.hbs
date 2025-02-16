@@ -1,0 +1,22 @@
+<main>
+    <div class="form">
+        <div class="reg">
+            <h2 class="reg__title">Регистрация</h2>
+            <form class="reg__form">
+                <div class="reg__inputs">
+                    {{> input label="Email" name="email"}}
+                    {{> input label="Login" name="login"}}
+                    {{> input label="Name"name="first_name"}}
+                    {{> input label="Surname" name="second_name"}}
+                    {{> input label="Phone" name="phone"}}
+                    {{> input label="Password" name="password"}}
+                    {{> input label="Repeat password" name="password"}}
+                </div>
+                <div class="reg__btns">
+                    {{> button type="primary" btnText="Зарегистрироваться"}}
+                    {{> link class="link" linkText="Вход"}}
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

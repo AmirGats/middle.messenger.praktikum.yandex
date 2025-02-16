@@ -1,0 +1,47 @@
+<div class="chatWindow">
+  <header class="chatWindow__header">
+    <div class="chatWindow__user">
+      <div class="chatUser__avatar"></div>
+      <h2 class="chatUser__name">Имя</h2>
+    </div>
+    <div class="dot-menu">
+        <img  src="{{icons.dotMenu}}" alt="меню" />
+    </div>
+  </header>
+  <section class="chatWindow__main">
+    <div class="chatWindow__messages">
+      <div class="chatWindow__message-date">19 июня</div>
+
+      <div class="chatWindow__another-message message">
+        <p>
+        Привет! Смотри, тут всплыл
+        интересный кусок лунной космической истории — НАСА в какой-то момент
+        попросила Хассельблад адаптировать модель SWC для полетов на Луну.
+        Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову
+        говоря, все тушки этих камер все еще находятся на поверхности Луны, так
+        как астронавты с собой забрали только кассеты с пленкой. Хассельблад в
+        итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету
+        они так никогда и не попали. Всего их было произведено 25 штук, одну из
+        них недавно продали на аукционе за 45000 евро.
+        </p>
+        <span class="time-message">12:57</span>
+        </div>
+
+      <div class="chatWindow__my-message message">
+        <p>Круто!</p>
+        <span class="time-message">12:57</span>
+      </div>
+    </div>
+  </section>
+  <footer class="chatWindow__footer">
+    <div class="chatWindow__clip-menu">
+        <img src="{{icons.clipMenu}}" alt="меню">
+    </div>
+    
+    <input type="text" name="message" placeholder="Сообщение">
+
+   <button class="chatWindow__btn">
+    <img src="{{icons.arrowLight}}" alt="отправить">
+   </button>
+  </footer>
+</div>

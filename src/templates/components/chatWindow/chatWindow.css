@@ -1,0 +1,124 @@
+.chatWindow {
+    padding: 5px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatWindow__header {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.dot-menu{
+    width: 3px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.chatWindow__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatUser__avatar {
+    width: 34px;
+    height: 34px;
+    background-color: #EFEFEF;
+}
+
+.chatUser__name {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.chatWindow__main {
+    height: 80vh;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.chatWindow__messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chatWindow__messages::-webkit-scrollbar {
+    display: none;
+}
+
+.chatWindow__message-date {
+    text-align: center;
+    color: var(--text-cl2);
+    font-size: 12px;
+}
+
+.message{
+    max-width: 420px;
+    width: fit-content;
+    padding: 11px;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.chatWindow__another-message {
+    margin-right: auto;
+    background-color: #F8F8F8;
+}
+
+.chatWindow__my-message {
+    margin-left: auto;
+    background-color: var(--act-cl);
+}
+
+.time-message{
+    font-size: 9px;
+    color: var(--blue-main);
+    text-align:left;
+}
+
+.chatWindow__footer {
+    border-top: 1px solid #EAEAEA;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.chatWindow__clip-menu{
+    cursor: pointer;
+}
+
+.chatWindow__footer input[type="text"] {
+    flex: 1; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    outline: none; 
+    font-size: 16px;
+    transition: border-color 0.3s; 
+}
+
+.chatWindow__footer input[type="text"]:focus {
+    border-color: #007bff; /* Цвет границы при фокусе */
+}
+
+
+.chatWindow__btn{
+    width: 28px;
+    height: 28px;
+    background-color: var(--blue-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}

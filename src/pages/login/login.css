@@ -1,0 +1,38 @@
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login {
+    box-shadow: 0px 0px 10px 1px rgba(34, 60, 80, 0.26);
+    border-radius: 12px;
+    width: 400px;
+    padding: 30px;
+}
+
+.login__title {
+    text-align: center;
+    color: #1e1e1e;
+    margin-bottom: 35px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login__inputs, .login__btns{
+    display: flex;
+    flex-direction: column;
+}
+
+.login__btns{
+    gap: 14px;
+}
+
+.login__inputs{
+    margin-bottom: 50px;
+}
