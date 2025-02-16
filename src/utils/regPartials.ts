@@ -13,6 +13,7 @@ export const registerPartial = () => {
     Handlebars.registerPartial("chatContainer", Components.chatContainer);
     Handlebars.registerPartial("chatSidebar", Components.chatSidebar);
     Handlebars.registerPartial("chatUser", Components.chatUser);
+    Handlebars.registerPartial("chatWindow", Components.chatWindow);
     Handlebars.registerPartial("profileContainer", Components.profileContainer);
     Handlebars.registerPartial("profileSet", Components.profileSet);
     Handlebars.registerPartial("profileNav", Components.profileNav);
