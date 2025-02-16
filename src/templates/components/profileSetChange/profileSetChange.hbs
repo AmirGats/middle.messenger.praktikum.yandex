@@ -7,35 +7,37 @@
             </div>
         </div>
 
-        <dl class="profile__info">
-            <div class="profile__row">
-                <dt class="profile__label">Почта</dt>
-                {{> inputProfile value=email nameProfile="email"}}
-            </div>
-            <div class="profile__row">
-                <dt class="profile__label">Логин</dt>
-                {{> inputProfile value=login nameProfile="login"}}
-            </div>
-            <div class="profile__row">
-                <dt class="profile__label">Имя</dt>
-                {{> inputProfile value=name nameProfile="email"}}
-            </div>
-            <div class="profile__row">
-                <dt class="profile__label">Фамилия</dt>
-                {{> inputProfile value=surname nameProfile="surname"}}
-            </div>
-            <div class="profile__row">
-                <dt class="profile__label">Имя в чате</dt>
-                {{> inputProfile value=nickname nameProfile="nickname"}}
-            </div>
-            <div class="profile__row">
-                <dt class="profile__label">Телефон</dt>
-                {{> inputProfile value=phone nameProfile="phone"}}
-            </div>
-        </dl>
+        <form action="#" class="profile__form">
+            <dl class="profile__info">
+                <div class="profile__row">
+                    <dt class="profile__label">Почта</dt>
+                    {{> inputProfile value=email nameProfile="email"}}
+                </div>
+                <div class="profile__row">
+                    <dt class="profile__label">Логин</dt>
+                    {{> inputProfile value=login nameProfile="login"}}
+                </div>
+                <div class="profile__row">
+                    <dt class="profile__label">Имя</dt>
+                    {{> inputProfile value=name nameProfile="first_name"}}
+                </div>
+                <div class="profile__row">
+                    <dt class="profile__label">Фамилия</dt>
+                    {{> inputProfile value=surname nameProfile="second_name"}}
+                </div>
+                <div class="profile__row">
+                    <dt class="profile__label">Имя в чате</dt>
+                    {{> inputProfile value=nickname nameProfile="display_name"}}
+                </div>
+                <div class="profile__row">
+                    <dt class="profile__label">Телефон</dt>
+                    {{> inputProfile value=phone nameProfile="phone"}}
+                </div>
+            </dl>
 
-        <div class="profile__change">
-            {{> button type="primary" btnText="Сохранить"}}
-        </div>
+            <div class="profile__change">
+                {{> button type="primary" btnText="Сохранить"}}
+            </div>
+        </form>
     </div>
 </div>
