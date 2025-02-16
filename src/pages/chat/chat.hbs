@@ -1,25 +1,27 @@
-{{#> chatContainer}}
-    {{#> chatSidebar}}
-        <div class="chatLink">
-            <a href="#" class="chatLink__element">Профиль</a>
-        </div>
-        <input type="text" class="search" name="search" placeholder="Поиск">
+<main>
+    {{#> chatContainer}}
+        {{#> chatSidebar}}
+            <div class="chatLink">
+                <a href="#" class="chatLink__element">Профиль</a>
+            </div>
+            <input type="text" class="search" name="search" placeholder="Поиск">
 
-        <div class="user-list">
-            {{> chatUser messageCount=2}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser messageCount=3}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser}}
-            {{> chatUser messageCount=1}}
-        </div>
-    {{/chatSidebar}}
-    {{> chatWindow icons=icons}}
-{{/chatContainer}} 
+            <div class="user-list">
+                {{> chatUser messageCount=2}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser messageCount=3}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser}}
+                {{> chatUser messageCount=1}}
+            </div>
+        {{/chatSidebar}}
+        {{> chatWindow icons=icons}}
+    {{/chatContainer}} 
+</main>
