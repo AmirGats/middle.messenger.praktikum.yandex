@@ -1,7 +1,7 @@
 import Block from "../../../core/Block";
 
 export default class Button extends Block{
-    constructor(props){
+    constructor(props: any){
         super("button", {
             ...props, 
             className:`btn btn__{{type}}`,

@@ -50,6 +50,11 @@ function navigate(page: string) {
   const [source, context] = linkPage[page];
   const container = document.getElementById("app")!;
 
+  if(typeof source === "function"){
+    container.appendChild(new source(context).getContent());
+    return;
+  }
+
   //@ts-ignore
   let profileData = context ?? {};
   const templateFunc = Handlebars.compile(source);

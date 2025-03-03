@@ -1,4 +1,6 @@
 import EventBus from "./Event-bus";
+import Handlebars from "handlebars";
+import { nanoid } from "nanoid";
 
 interface BlockMeta<T> {
   tagName: string;
@@ -6,11 +8,17 @@ interface BlockMeta<T> {
 }
 
 interface Props {
+  events?: Record<string, EventListener>; 
   [key: string]: any;
 }
 
+type PropsWithChildren = {
+  children?: Record<string, Block | Block[]>;
+} & Record<string, unknown>;
+
+
 // Основной класс Block, используемый для создания компонентов
-class Block<T extends Props = {}> {
+class Block<T extends Props = {} > {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -18,14 +26,29 @@ class Block<T extends Props = {}> {
     FLOW_RENDER: "flow:render",
   } as const;
 
-  private _element: HTMLElement | null = null;
-  private _meta: BlockMeta<T> | null = null;
-  private eventBus: () => EventBus;
-  public props: T;
+  
+  _element: HTMLElement | null = null;
+  _meta: BlockMeta<T> | null = null;
+  _id = nanoid(6);
+  eventBus: () => EventBus;
+  props: T;
+  children: {};
 
-  constructor(tagName: string = "div", props: T = {} as T) {
-    const eventBus = new EventBus();
+  
+    /** JSDoc
+   * @param {string} tagName
+   * @param {Object} props
+   *
+   * @returns {void}
+   */
+
+  constructor(tagName: string = "div", propsWithChildren: Record<string, unknown> = {}, props: T) {
+    const { children } = this._getChildrenAndProps(propsWithChildren);
+    this.children = children;
+    this.props = props;
+    
     this._meta = { tagName, props };
+    const eventBus = new EventBus();
 
     this.props = this._makePropsProxy(props);
     this.eventBus = () => eventBus;
@@ -44,8 +67,11 @@ class Block<T extends Props = {}> {
 
   // Создание корневого элемента компонента
   private _createResources(): void {
-    if (!this._meta) return;
-    this._element = this._createDocumentElement(this._meta.tagName);
+    const tagName: string | undefined = this._meta?.tagName;
+    if (!tagName) {
+      throw new Error("Ошибка: _meta не инициализирован!");
+    }
+    this._element = this._createDocumentElement(tagName);
   }
 
   // Инициализация компонента
@@ -57,6 +83,31 @@ class Block<T extends Props = {}> {
   // Вызывается при монтировании компонента
   private _componentDidMount(): void {
     this.componentDidMount();
+  }
+
+  private _getChildrenAndProps(propsAndChildren: PropsWithChildren): { props: T; children: Record<string, Block> } {
+    const children: Record<string, Block> = {};
+    const props: Record<string, any> = {};
+  
+    Object.entries(propsAndChildren).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        value.forEach((obj) => {
+          if (obj instanceof Block) {
+            children[key] = value as unknown as Block;
+          } else {
+            props[key] = value;
+          }
+        });
+        return;
+      }
+      if (value instanceof Block) {
+        children[key] = value;
+      } else {
+        props[key] = value;
+      }
+    });
+  
+    return { props: props as T, children };
   }
 
 //@ts-ignore
@@ -96,13 +147,63 @@ class Block<T extends Props = {}> {
     return this._element;
   }
 
+  private _addEvents(): void{
+    const { events = {} } = this.props;
+
+    Object.keys(events).forEach((eventName) => {
+      this._element?.addEventListener(eventName, events[eventName]);
+    })
+  }
+
+  private _removeEvents(): void{
+    const { events = {} } = this.props;
+
+    Object.keys(events).forEach((eventName) => {
+      this._element?.removeEventListener(eventName, events[eventName]);
+    })
+  }
+
+  private _compile(): DocumentFragment {
+    const propsAndStubs: Record<string, unknown> = { ...this.props };
+
+    Object.entries(this.children).forEach(([key, child]) => {
+        if (Array.isArray(child)) {
+            propsAndStubs[key] = child.map(
+                (component) => `<div data-id="${(component as Block)._id}"></div>`,
+            );
+        } else {
+            propsAndStubs[key] = `<div data-id="${(child as Block)._id}"></div>`;
+        }
+    });
+
+    // Приводим к HTMLTemplateElement, чтобы избежать ошибки с `content`
+    const fragment = this._createDocumentElement("template") as HTMLTemplateElement;
+    const template = Handlebars.compile(this.render());
+    fragment.innerHTML = template(propsAndStubs);
+
+    Object.values(this.children).forEach((child) => {
+        if (Array.isArray(child)) {
+            child.forEach((component) => {
+                const stub = fragment.content.querySelector(`[data-id="${(component as Block)._id}"]`);
+                stub?.replaceWith((component as Block).getContent() as Node);
+            });
+        } else {
+            const stub = fragment.content.querySelector(`[data-id="${(child as Block)._id}"]`);
+            stub?.replaceWith((child as Block).getContent() as Node);
+        }
+    });
+
+    return fragment.content;
+}
+
+
   // Отрисовка компонента
   private _render(): void {
+    this._removeEvents();
     if (!this._element) {
       this._createResources();
     }
-
-    const block = this.render();
+    const block = this._compile();
 
     if (!this._element) return;
 
@@ -112,13 +213,12 @@ class Block<T extends Props = {}> {
     } else {
       console.error("Render method must return a DOM node.");
     }
+    this._addEvents();
   }
 
   // Метод, который должен быть переопределён в наследниках
-  protected render(): Node {
-    const div = document.createElement("div");
-    div.textContent = (this.props as any).text; // Используется для простоты
-    return div;
+  public render(): string {
+    return "";
   }
 
   // Получение контента компонента
@@ -134,7 +234,7 @@ class Block<T extends Props = {}> {
         return typeof value === "function" ? value.bind(target) : value;
       },
       set(target, prop: string, value: any) {
-        target[prop as keyof T] = value;
+        (target as Record<string, any>)[prop] = value;
         return true;
       },
       deleteProperty() {
@@ -144,7 +244,10 @@ class Block<T extends Props = {}> {
   }
 
   // Создание HTML-элемента
-  private _createDocumentElement(tagName: string): HTMLElement {
+  _createDocumentElement(tagName: string): HTMLElement | HTMLTemplateElement {
+    if (tagName === "template") {
+      return document.createElement(tagName) as HTMLTemplateElement;
+    }
     return document.createElement(tagName);
   }
 
