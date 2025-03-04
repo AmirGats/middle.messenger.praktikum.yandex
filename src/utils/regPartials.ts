@@ -4,8 +4,8 @@ import Handlebars from "handlebars";
 import * as Components from "../templates/components"
 
 export const registerPartial = () => {
-    Handlebars.registerPartial("button", Components.button);
-    Handlebars.registerPartial("input", Components.input);
+    // Handlebars.registerPartial("button", ));
+    // Handlebars.registerPartial("input", );
     Handlebars.registerPartial("link", Components.link);
     Handlebars.registerPartial("inputProfile", Components.inputProfile);
     Handlebars.registerPartial("inputFile", Components.inputFile);

@@ -8,9 +8,13 @@ interface LoginPageProps {
   };
 }
 
-export default class LoginPage extends Block {
+export default class LoginPage extends Block<LoginPageProps> {
   children: {
     InputLogin?: Block;
+    InputPassword?: Block;
+    SignInButton?: Block;
+    SignUpButton?: Block;
+
   } = {};
 
   constructor(props: LoginPageProps) {
@@ -33,19 +37,19 @@ export default class LoginPage extends Block {
         onChange: (e: Event) => {
           const target = e.target as HTMLInputElement;
           if (!target) return;
-          const value = (e.target as HTMLInputElement).value;
-
+          const value = target.value;
+      
           let error = "";
-
+      
           if (value === "error") {
             error = "Some error happened.";
           }
           if (value.length < 3) {
             error = "More than 3 characters required.";
           }
-
+      
           (this.children.InputLogin as Block).setProps({ error });
-
+      
           this.setProps({
             formState: {
               ...this.props.formState,
@@ -53,7 +57,20 @@ export default class LoginPage extends Block {
             },
           });
         },
-      }),
+        onBlur: (e: FocusEvent) => {
+          const target = e.target as HTMLInputElement;
+          if (!target) return;
+          const value = target.value;
+      
+          let error = "";
+      
+          if (value.length < 3) {
+            error = "More than 3 characters required.";
+          }
+      
+          (this.children.InputLogin as Block).setProps({ error });
+        }
+      }),      
       InputPassword: new input({
         label: "Password",
         name: "password",
@@ -67,9 +84,22 @@ export default class LoginPage extends Block {
           this.setProps({
             formState: {
               ...this.props.formState,
-              login: value, 
+              password: value, 
             },
           });
+        },
+        onBlur: (e: FocusEvent) => {
+          const target = e.target as HTMLInputElement;
+          if (!target) return;
+          const value = target.value;
+      
+          let error = "";
+      
+          if (value.length < 3) {
+            error = "More than 3 characters required.";
+          }
+      
+          (this.children.InputPassword as Block).setProps({ error });
         }
         
       }),
@@ -89,10 +119,8 @@ export default class LoginPage extends Block {
     });
   }
 
-  public render(): Node {
-    const form = document.createElement("form");
-    form.className = "login__form";
-    form.innerHTML = `
+  public render(): string {
+    return `
       <form class="login__form">
         <div class="login__inputs">
           {{{InputLogin}}}
@@ -105,6 +133,5 @@ export default class LoginPage extends Block {
       </form>
     `;
 
-    return form;
   }
 }

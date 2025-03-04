@@ -4,8 +4,10 @@ import Input from "./input";
 type InputFieldProps = {
     label: string;
     name: string;
+    type: string;
+    error?: string;
     onChange: (e: Event) => void;
-    onBlur: (e: Event) => void;
+    onBlur: (e: FocusEvent) => void;  
 };
 
 export default class InputField extends Block {
@@ -16,9 +18,7 @@ export default class InputField extends Block {
             change: props.onChange,
             Input: new Input({
                 className: "input__element",
-                events: {
-                    blur: props.onBlur,  
-                },
+                label: "{{label}}",
             }),
         });
     }

@@ -1,5 +1,6 @@
 import {defineConfig} from 'vite';
 import checker from "vite-plugin-checker";
+import handlebars from "vite-plugin-handlebars";
 
 export default defineConfig({
     root: '.',
@@ -9,6 +10,9 @@ export default defineConfig({
     plugins: [
         checker({
             typescript: true,
+        }),
+        handlebars({
+            partialDirectory: "src/templates/components",
         }),
     ],
 });

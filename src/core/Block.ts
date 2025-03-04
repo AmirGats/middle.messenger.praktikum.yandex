@@ -42,20 +42,24 @@ class Block<T extends Props = {} > {
    * @returns {void}
    */
 
-  constructor(tagName: string = "div", propsWithChildren: Record<string, unknown> = {}, props: T) {
-    const { children } = this._getChildrenAndProps(propsWithChildren);
-    this.children = children;
-    this.props = props;
-    
-    this._meta = { tagName, props };
-    const eventBus = new EventBus();
-
-    this.props = this._makePropsProxy(props);
-    this.eventBus = () => eventBus;
-
-    this._registerEvents(eventBus);
-    eventBus.emit(Block.EVENTS.INIT);
+    constructor(tagName: string = "div", propsWithChildren: Record<string, unknown> = {}) {
+      const eventBus = new EventBus();
+      this.eventBus = () => eventBus;
+  
+      const { props, children } = this._getChildrenAndProps(propsWithChildren as PropsWithChildren);
+      this.children = children;
+  
+      this._meta = {
+        tagName,
+        props,
+      };
+  
+      this.props = this._makePropsProxy(props as T);
+  
+      this._registerEvents(eventBus);
+      eventBus.emit(Block.EVENTS.INIT);
   }
+  
 
   // Регистрация событий жизненного цикла компонента
   private _registerEvents(eventBus: EventBus): void {
