@@ -105,7 +105,7 @@ export default class LoginPage extends Block<LoginPageProps> {
       }),
       SignInButton: new button({
         btnText: "Sign in",
-        color: "primary",
+        color: `primary`,
         onClick: (e: MouseEvent) => {
           e.preventDefault();
           console.log("Login:", this.props.formState.login);
@@ -121,18 +121,24 @@ export default class LoginPage extends Block<LoginPageProps> {
   }
 
   public render(): string {
-    return `
-      <form class="login__form">
-        <div class="login__inputs">
-          {{{InputLogin}}}
-          {{{InputPassword}}}
-        </div>
-        <div class="login__btns">
-          {{{SignInButton}}}
-          {{{SignUpButton}}}
-        </div>
-      </form>
-    `;
-
+      return `
+      <main>
+        <div class="form">
+            <div class="login">
+                <h2 class="login__title">Вход</h2>
+                <form class="login__form">
+                    <div class="login__inputs">
+                      {{{InputLogin}}}
+                      {{{InputPassword}}}
+                    </div>
+                    <div class="login__btns">
+                        {{{SignInButton}}}
+                        {{{SignUpButton}}}
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        `;
   }
 }

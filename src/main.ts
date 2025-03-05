@@ -2,6 +2,7 @@ import "./style.css";
 import Handlebars from "handlebars";
 import { registerPartial } from "./utils/regPartials";
 import * as Pages from "./pages";
+import renderDOM from "./core/renderDOM";
 
 import arrowBack from "./assets/image/arrow_back.svg";
 import arrowLight from "./assets/image/arrow_forward-light.svg";
@@ -51,7 +52,7 @@ function navigate(page: string) {
   const container = document.getElementById("app")!;
 
   if(typeof source === "function"){
-    container.appendChild(new source(context).getContent());
+    renderDOM(new source({}));
     return;
   }
 
@@ -61,9 +62,7 @@ function navigate(page: string) {
   container.innerHTML = templateFunc(profileData);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  navigate("nav");
-});
+document.addEventListener("DOMContentLoaded", () => navigate("nav") );
 
 document.addEventListener("click", (e) => {
   //@ts-ignore

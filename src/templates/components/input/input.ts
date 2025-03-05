@@ -10,6 +10,7 @@ export default class Input extends Block{
         super("input", {
             ...props,
             className: "input__element",
+            label: `${props.label}`,
             attrs: {
               placeholder: "",
             },

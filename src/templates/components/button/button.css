@@ -11,12 +11,12 @@
     cursor: pointer;
 }
  
-.btn__primary{
+.primary{
     background-color: var(--blue-main);
     font-size: 15px;
 }
 
-.btn__link{
+.link{
     color: var(--blue-main);
     font-size: 13px;
     text-align: center;
