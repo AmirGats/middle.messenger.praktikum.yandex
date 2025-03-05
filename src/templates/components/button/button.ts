@@ -4,7 +4,6 @@ export default class Button extends Block{
     constructor(props: any){
         super("button", {
             ...props, 
-            className:`btn btn__{{type}}`,
             events: {
                 click: props.onClick,
             },
@@ -12,7 +11,9 @@ export default class Button extends Block{
     }
     public render(): string{
         return `
-        {{btnText}}
+       <button class="btn btn__{{type}}">
+                {{btnText}}
+        </button>
         `;
     }
 }

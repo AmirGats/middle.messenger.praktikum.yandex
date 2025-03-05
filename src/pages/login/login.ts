@@ -115,6 +115,7 @@ export default class LoginPage extends Block<LoginPageProps> {
       SignUpButton: new button({
         btnText: "Sign up",
         color: "link",
+        className: ".btn__primary"
       }),
     });
   }

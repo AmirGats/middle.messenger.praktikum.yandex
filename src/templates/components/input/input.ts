@@ -9,6 +9,7 @@ export default class Input extends Block{
     constructor(props: InputProps){
         super("input", {
             ...props,
+            className: "input__element",
             attrs: {
               placeholder: "",
             },

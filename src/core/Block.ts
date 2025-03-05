@@ -33,6 +33,7 @@ class Block<T extends Props = {} > {
   eventBus: () => EventBus;
   props: T;
   children: {};
+    id: any;
 
   
     /** JSDoc
